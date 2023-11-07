@@ -1,0 +1,20 @@
+1)  memcpy
+
+#include<stdio.h>
+int main()
+{
+    int arr[2]={1,3};
+    int arr1[2]={1,4};
+    printf("display array elemets before copy\n");
+    for(int i=0;i<2;i++)
+    {
+        printf("%d\n",arr[i]);
+    }
+    memcpy(arr,arr1,sizeof(int)*2);
+    printf("display array elemets after copy\n");
+    for(int i=0;i<2;i++)
+    {
+        printf("%d\n",arr[i]);
+    }
+}
+
