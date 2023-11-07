@@ -1,0 +1,35 @@
+// Find the subarray with the least sum
+#include<stdio.h>
+void subarray(int arr[],int size)
+{
+    int min_sum=arr[0];
+    int start,end,sum;
+    int i,j;
+    for(i=0;i<size;i++)
+    {
+        sum=0;
+        for(j=i;j<size;j++)
+        {
+            sum=sum+arr[j];
+            if(sum<min_sum)
+            {
+                min_sum=sum;
+                start=i;
+                end=j;
+            }
+        }
+    }
+    for(i=start;i<=end;i++)
+    {
+        printf("minimum sum=%d ",arr[i]);
+    }
+    printf("\n");
+}
+int main()
+{
+    int arr[]={3,1,-4,2,0};
+    int size=sizeof(arr)/sizeof(arr[0]);
+    subarray(arr,size);
+}
+
+
