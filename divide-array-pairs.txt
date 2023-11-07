@@ -1,0 +1,37 @@
+//Find if an array can be divided into pairs whose sum is divisible by k.
+#include<stdio.h>
+int dividepairs(int arr[],int size,int k)
+{
+    int count[100]={0};
+    int i,j;
+    for(i=0;i<size;i++)
+    {
+        count[(arr[i]%k+k)%k]++;
+    }
+    for(i=0;i<k;i++)
+    {
+        if(count[i]!=count[k-i])
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+int main()
+{
+    int arr[]={9,7,5,-3};
+    int size=sizeof(arr)/sizeof(arr[0]);
+    int k=6;
+    if(size%2!=0)
+    {
+        printf("false\n");
+    }
+    if(dividepairs(arr,size,k))
+    {
+        printf("true\n");
+    }
+    else
+    {
+        printf("false\n");
+    }
+}
