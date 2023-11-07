@@ -1,0 +1,34 @@
+// Find the "Kth" max and min element of an array
+
+#include<stdio.h>
+void bubble(int arr[],int size)
+{
+    int i,j,temp; 
+    for(i=0;i<size-1;i++)
+    {
+        for(j=0;j<size-i-1;j++)
+        if(arr[j]<arr[j+1])
+        {
+            temp=arr[j];
+            arr[j]=arr[j+1];
+            arr[j+1]=temp;
+        }
+    }
+    printf("array elemets are\n");
+    for(i=0;i<size;i++)
+    {
+        printf("%d\t",arr[i]);
+    }
+    printf("\n");
+    
+    
+}
+int main()
+{
+    int k=4;
+    int arr[]={7,10,4,3,20,15};
+    int size=sizeof(arr)/sizeof(arr[0]);
+    bubble(arr,size);
+    printf("kt largest elemet=%d\n",arr[k-1]);
+    printf("kth smallest elemet=%d\n",arr[size-k]);
+}
